@@ -9,7 +9,31 @@ if (isset($_POST["submit"])) {
 
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
+
+    if (emptyInputSignup($name, $email, $userName, $pwd, $pwdRepeat) !== false ) {
+        header("location: ../signup.php?error=empty=emptyinput");
+        exit();
+    }
+    if (invalidUid($userName) !== false ) {
+        header("location: ../signup.php?error=empty=invaliduid");
+        exit();
+    }
+    if (invalidUid($email) !== false ) {
+        header("location: ../signup.php?error=empty=invalidemail");
+        exit();
+    }
+    if (pwdMatch($pwd, $pwdRepeat) !== false ) {
+        header("location: ../signup.php?error=empty=passwordsdontmatch");
+        exit();
+    }
+    if (uidExists($conn, $username) !== false ) {
+        header("location: ../signup.php?error=empty=usernametaken");
+        exit();
+    }
+
+    createUser($conn, $name, $email, $userName, $pwd);
 }
 else {
     header("location: ../signup.php");
+    exit();
 }
