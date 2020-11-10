@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_POST["submit"])) {
     $name = $_POST["name"];
     $email = $_POST["email"];
@@ -11,23 +10,23 @@ if (isset($_POST["submit"])) {
     require_once 'functions.inc.php';
 
     if (emptyInputSignup($name, $email, $userName, $pwd, $pwdRepeat) !== false ) {
-        header("location: ../signup.php?error=empty=emptyinput");
+        header("location: ../signup.php?error=emptyinput");
         exit();
     }
     if (invalidUid($userName) !== false ) {
-        header("location: ../signup.php?error=empty=invaliduid");
+        header("location: ../signup.php?error=invaliduid");
         exit();
     }
     if (invalidEmail($email) !== false ) {
-        header("location: ../signup.php?error=empty=invalidemail");
+        header("location: ../signup.php?error=invalidemail");
         exit();
     }
     if (pwdMatch($pwd, $pwdRepeat) !== false ) {
-        header("location: ../signup.php?error=empty=passwordsdontmatch");
+        header("location: ../signup.php?error=passwordsdontmatch");
         exit();
     }
-    if (uidExists($conn, $username, $email) !== false ) {
-        header("location: ../signup.php?error=empty=usernametaken");
+    if (uidExists($conn, $userName, $email) !== false ) {
+        header("location: ../signup.php?error=usernametaken");
         exit();
     }
 
