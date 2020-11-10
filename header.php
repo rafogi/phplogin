@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +15,14 @@
   <a href="characters.php">Characters</a>
   <a href="contact.php">Contact</a>
   <a href="about.php">About</a>
-  <a href="signup.php">Sign up</a>
-  <a href="login.php">login</a>
+  <?php
+    if (isset($_SESSION["useruid"])) {
+        echo "<a href='profile.php'>Profile Page</a>";
+        echo "<li><a href='logout.php'>Logout</a>";
+    }
+    else {
+        echo "<a href='signup.php'>Sign up</a>";
+        echo "<a href='login.php'>Log in</a>";
+    }
+  ?>
 </nav>

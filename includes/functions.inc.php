@@ -97,24 +97,26 @@ function createUser($conn, $name, $email, $username, $pwd) {
     return $result;
 }
 
-function loginUser($conn, $userName, $pwd) {
-    $uidExists = uidExists($conn, $userName, $email);
+function loginUser($conn, $username, $pwd) {
+	$uidExists = uidExists($conn, $username, $username);
 
-    if ($uidExists === false) {
-        header("location: ../login.php?error=wronglogin");
-        exit();
-    }
-    $pwdHashed = $uidExists['usersPwd'];
-    $checkPwd = password_verify($pwd, $pwdHashed);
-    if (checkPwd === false) {
-        header("location: ../login.php?error=wronglogin");
-        exit();
-    }
-    else if ($checkPwd === true) {
-        session_start();
-        $_SESSION["userid"] = $uidExists["usersId"];
-        $_SESSION["useruid"] = $uidExists["usersUid"];
-        header("location: ../index.php");
-        exit();
-    }
+	if ($uidExists === false) {
+		header("location: ../login.php?error=wronglogin");
+		exit();
+	}
+
+	$pwdHashed = $uidExists["usersPwd"];
+	$checkPwd = password_verify($pwd, $pwdHashed);
+
+	if ($checkPwd === false) {
+		header("location: ../login.php?error=wronglogin");
+		exit();
+	}
+	elseif ($checkPwd === true) {
+		session_start();
+		$_SESSION["userid"] = $uidExists["usersId"];
+		$_SESSION["useruid"] = $uidExists["usersUid"];
+		header("location: ../index.php?error=none");
+		exit();
+	}
 }

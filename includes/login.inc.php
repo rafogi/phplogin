@@ -1,20 +1,29 @@
 <?php
 
 if (isset($_POST["submit"])) {
-    $userName = $_POST["uid"];
-    $pwd = $_POST["pwd"];
 
-    require_once "dbh.inc.php";
-    require_once "functions.inc.php"
+  // First we get the form data from the URL
+  $userName = $_POST["uid"];
+  $pwd = $_POST["pwd"];
 
-    if (emptyInputLogin($userName, $pwd) !== false ) {
-        header("location: ../login.php?error=emptyinput");
-        exit();
-    }
+  // Then we run a bunch of error handlers to catch any user mistakes we can (you can add more than I did)
+  // These functions can be found in functions.inc.php
 
-    loginUser($conn, $userName, $pwd);
-}
-else {
-    header("location: ../login.php");
+  require_once "dbh.inc.php";
+  require_once 'functions.inc.php';
+
+  // Left inputs empty
+  if (emptyInputLogin($userName, $pwd) === true) {
+    header("location: ../login.php?error=emptyinput");
+		exit();
+  }
+
+  // If we get to here, it means there are no user errors
+
+  // Now we insert the user into the database
+  loginUser($conn, $userName, $pwd);
+
+} else {
+	header("location: ../login.php");
     exit();
 }
