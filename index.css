@@ -25,3 +25,27 @@
     background-color: #4CAF50;
     color: white;
   }
+
+  .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+  }
+
+  .container article {
+    width: 20vw;
+    background-color: lightgray;
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    border: solid black 2px;
+    margin-top: 2em
+  }
+
+  .container article h4 {
+    text-align: center;
+  }
+
+  .container article img {
+    position: relative;
+  }

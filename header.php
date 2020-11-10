@@ -17,8 +17,8 @@
   <a href="about.php">About</a>
   <?php
     if (isset($_SESSION["useruid"])) {
-        echo "<a href='profile.php'>Profile Page</a>";
-        echo "<li><a href='logout.php'>Logout</a>";
+        echo "<a href='logout.php'>Logout</a>";
+        echo "<p style='float: right; color:white; margin-right:2em;'>Hello " .$_SESSION["useruid"] . "</p>";
     }
     else {
         echo "<a href='signup.php'>Sign up</a>";
