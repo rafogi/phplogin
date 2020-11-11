@@ -1,6 +1,6 @@
 <?php
   include_once 'header.php';
   ?>
-<h1>contact</h1>
+<h1 style='margin-top:2em'>contact</h1>
 </body>
 </html>

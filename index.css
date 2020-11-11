@@ -1,7 +1,12 @@
+
 /* Add a black background color to the top navigation */
 .topnav {
+    position: absolute;
+    top:0px;
+    width: 100%;
     background-color: #333;
     overflow: hidden;
+    margin-top: none;
   }
   
   /* Style the links inside the navigation bar */
@@ -27,6 +32,7 @@
   }
 
   .container {
+      margin-top: 2em;
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
@@ -49,3 +55,7 @@
   .container article img {
     position: relative;
   }
+
+body {
+    background-image: url("https://i.redd.it/d3lgqeqtzvl11.png");
+}

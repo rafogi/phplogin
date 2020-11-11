@@ -3,7 +3,7 @@
   include_once 'includes/dbh.inc.php'
 
   ?>
-    <h1>Characters</h1>
+    <h1 style='margin-top:2em'>Characters</h1>
 </body>
 <section class="container"> 
   <?php

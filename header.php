@@ -9,7 +9,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
 </head>
-<body>
 <nav class="topnav">
   <a class="active" href="index.php">Home</a>
   <a href="characters.php">Characters</a>
@@ -18,6 +17,7 @@
   <?php
     if (isset($_SESSION["useruid"])) {
         echo "<a href='logout.php'>Logout</a>";
+        echo "<a href='addChar.php'>Add a character</a>";
         echo "<p style='float: right; color:white; margin-right:2em;'>Hello " .$_SESSION["useruid"] . "</p>";
     }
     else {
@@ -26,3 +26,4 @@
     }
   ?>
 </nav>
+<body>

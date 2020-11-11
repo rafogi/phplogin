@@ -120,3 +120,57 @@ function loginUser($conn, $username, $pwd) {
 		exit();
 	}
 }
+
+function emptyInputAddChar($name, $description, $image, $race) {
+    $result;
+    if (empty($name) || empty($description) || empty($image) || empty($race)) {
+        $result = true;
+    }
+    else {
+        $result = false;
+    }
+    return $result;
+}
+
+function charExists($conn, $name) {
+    $sql = "SELECT * FROM characters WHERE name = ?;";
+      $stmt = mysqli_stmt_init($conn);
+      if (!mysqli_stmt_prepare($stmt, $sql)) {
+           header("location: ../addChar.php?error=stmtfailed");
+          exit();
+      }
+  
+      mysqli_stmt_bind_param($stmt, "s", $name);
+      mysqli_stmt_execute($stmt);
+  
+      // "Get result" returns the results from a prepared statement
+      $resultData = mysqli_stmt_get_result($stmt);
+  
+      if ($row = mysqli_fetch_assoc($resultData)) {
+          return $row;
+      }
+      else {
+          $result = false;
+          return $result;
+      }
+  
+      mysqli_stmt_close($stmt);
+  }
+
+  function createCharacter($conn, $name, $description, $image, $race) {
+    $sql = "INSERT INTO characters (name, description, image, race) VALUES (?, ?, ?, ?);";
+  
+      $stmt = mysqli_stmt_init($conn);
+      if (!mysqli_stmt_prepare($stmt, $sql)) {
+           header("location: ../addChar.php?error=stmtfailed");
+          exit();
+      }
+  
+  
+      mysqli_stmt_bind_param($stmt, "ssss", $name, $description, $image, $race);
+      mysqli_stmt_execute($stmt);
+      mysqli_stmt_close($stmt);
+      mysqli_close($conn);
+      header("location: ../addChar.php?error=none");
+      exit();
+  }

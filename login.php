@@ -3,7 +3,7 @@
   ?>
 
   <section class="login-form">
-  <h2>Log In</h2>
+  <h1 style='margin-top:2em'>Log In</h1>
   <form action="includes/login.inc.php" method="post">
     <input type="text" name="uid" placeholder="Username/Email">
     <input type="password" name="pwd" placeholder="Password">

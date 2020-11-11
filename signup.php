@@ -3,7 +3,7 @@
   ?>
 
   <section class="signup-form">
-  <h2>Sign up</h2>
+  <h1 style='margin-top:2em'>Sign up</h1>
   <form action="includes/signup.inc.php" method="post">
     <input type="text" name="name" placeholder="enter your name">
     <input type="email" name="email" placeholder="email">
@@ -34,6 +34,8 @@
         }
         else if ($_GET["error"] == "none") {
             echo "<p>Signed up successful</p>";
+            header("location: ../index.php");
+            exit();
         }
     }
     ?>
