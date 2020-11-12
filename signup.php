@@ -1,16 +1,18 @@
 <?php
   include_once 'header.php';
-  ?>
-
-  <section class="signup-form">
+?>
+<link rel="stylesheet" href="signup.css">
+<section class="signup-form">
   <h1 style='margin-top:2em'>Sign up</h1>
-  <form action="includes/signup.inc.php" method="post">
-    <input type="text" name="name" placeholder="enter your name">
-    <input type="email" name="email" placeholder="email">
-    <input type="text" name="uid" placeholder="username">
-    <input type="password" name="pwd" placeholder="Password">
-    <input type="password" name="pwdrepeat" placeholder="Repeat password">
-    <button type="submit" name="submit">Sign Up</button>
+
+ 
+  <form action="includes/signup.inc.php" method="post" class= "sign-container">
+    <input class="signIp" type="text" name="name" placeholder="enter your name">
+    <input  class="signIp" type="email" name="email" placeholder="email">
+    <input class="signIp" type="text" name="uid" placeholder="username">
+    <input class="signIp" type="password" name="pwd" placeholder="Password">
+    <input class="signIp" type="password" name="pwdrepeat" placeholder="Repeat password">
+    <button class="signIp" type="submit" name="submit">Sign Up</button>
   </form>
   <?php
     if(isset($_GET["error"])) {
@@ -34,7 +36,7 @@
         }
         else if ($_GET["error"] == "none") {
             echo "<p>Signed up successful</p>";
-            header("location: ../index.php");
+            header("location: index.php");
             exit();
         }
     }

@@ -53,7 +53,7 @@ function uidExists($conn, $userName, $email) {
       mysqli_stmt_bind_param($stmt, "ss", $username, $email);
       mysqli_stmt_execute($stmt);
   
-      // "Get result" returns the results from a prepared statement
+
       $resultData = mysqli_stmt_get_result($stmt);
   
       if ($row = mysqli_fetch_assoc($resultData)) {
@@ -116,7 +116,7 @@ function loginUser($conn, $username, $pwd) {
 		session_start();
 		$_SESSION["userid"] = $uidExists["usersId"];
 		$_SESSION["useruid"] = $uidExists["usersUid"];
-		header("location: ../index.php?error=none");
+		header("location: ../index.php");
 		exit();
 	}
 }
@@ -143,7 +143,7 @@ function charExists($conn, $name) {
       mysqli_stmt_bind_param($stmt, "s", $name);
       mysqli_stmt_execute($stmt);
   
-      // "Get result" returns the results from a prepared statement
+
       $resultData = mysqli_stmt_get_result($stmt);
   
       if ($row = mysqli_fetch_assoc($resultData)) {

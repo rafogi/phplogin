@@ -29,6 +29,7 @@
         }
         else if ($_GET["error"] == "none") {
             echo "<p style='text-align:center; color:blue;'>character created successfully</p>";
+            header("location: characters.php");
         }
     }
     ?>
