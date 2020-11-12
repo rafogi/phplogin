@@ -11,6 +11,6 @@ Sign-up to the webpage, Login and Add a character to the DATABASE
 PHP, HTML, CSS, APACHE, MYSQL
 
 ## GIFS
-![Sign Up](/relative/path/to/img.jpg?raw=true)
-![Sign Up](/relative/path/to/img.jpg?raw=true)
-![Sign Up](/relative/path/to/img.jpg?raw=true)
+![Sign Up](gifs/signup.gif)
+![Sign Up](gifs/login.gif)
+![Sign Up](gifs/AddChar.gif)
